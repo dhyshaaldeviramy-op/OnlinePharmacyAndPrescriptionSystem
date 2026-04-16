@@ -1,0 +1,88 @@
+/* Container */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* Form Section */
+div {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+/* Input focus */
+input:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 5px rgba(52,152,219,0.5);
+}
+
+/* Checkbox */
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* Button */
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: #3498db;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+/* List Section */
+ul {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 0;
+}
+
+/* List Items */
+li {
+  list-style: none;
+  padding: 12px;
+  margin-bottom: 10px;
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Delete Button */
+li button {
+  background: #e74c3c;
+  padding: 6px 12px;
+}
+
+li button:hover {
+  background: #c0392b;
+}

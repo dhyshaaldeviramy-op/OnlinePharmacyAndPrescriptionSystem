@@ -1,0 +1,26 @@
+<h2>Medicine Catalog</h2>
+
+<div>
+  <input placeholder="Name" [(ngModel)]="form.name">
+  <input placeholder="Manufacturer" [(ngModel)]="form.manufacturer">
+  <input placeholder="Category" [(ngModel)]="form.category">
+  <input type="number" placeholder="Price" [(ngModel)]="form.price">
+  <input type="number" placeholder="Stock" [(ngModel)]="form.stock">
+  <input type="date" [(ngModel)]="form.expiryDate">
+
+  <label>
+    <input type="checkbox" [(ngModel)]="form.isPrescriptionRequired">
+    Rx Required
+  </label>
+
+  <button (click)="save()">Add Medicine</button>
+</div>
+
+<hr>
+
+<ul>
+  <li *ngFor="let m of medicines">
+    {{m.name}} - ₹{{m.price}}
+    <button (click)="delete(m.id)">Delete</button>
+  </li>
+</ul>

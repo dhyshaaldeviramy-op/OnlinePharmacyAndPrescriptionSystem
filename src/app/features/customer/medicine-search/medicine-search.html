@@ -1,0 +1,19 @@
+<h2>Search Medicines</h2>
+
+<input 
+  type="text"
+  placeholder="Search medicines..."
+  [(ngModel)]="searchText"
+  (input)="onSearchChange()"
+/>
+
+<hr>
+
+<div *ngFor="let m of medicines" class="card">
+  <h3>{{m.name}}</h3>
+  <p>₹{{m.price}} | {{m.category}}</p>
+
+  <span *ngIf="m.isPrescriptionRequired" class="rx">
+    Rx Required
+  </span>
+</div>
