@@ -21,7 +21,8 @@ builder.Services.AddCors(options =>
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IPrescriptionService, PrescriptionService>();
 builder.Services.AddScoped<ICartService, CartService>();
-
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IOrderWorkflowService, OrderWorkflowService>();
 builder.Services.AddControllers();
 builder.Services.AddScoped<IMedicineService, MedicineService>();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
