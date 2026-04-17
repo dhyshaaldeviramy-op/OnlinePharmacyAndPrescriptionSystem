@@ -1,0 +1,28 @@
+<h2 class="approval-title">Prescription Approval</h2>
+
+<div class="list-container">
+
+  <div *ngFor="let item of prescriptions()" class="card">
+
+    <p><b>User:</b> {{item.userName}}</p>
+
+    <p><b>Status:</b> {{item.status}}</p>
+
+    <a [href]="'https://localhost:7257' + item.filePath"
+       target="_blank">
+       View File
+    </a>
+
+    <br><br>
+
+    <button (click)="approve(item.id)">
+      Approve
+    </button>
+
+    <button (click)="reject(item.id)">
+      Reject
+    </button>
+
+  </div>
+
+</div>

@@ -1,12 +1,14 @@
+import { CartService } from './../../../core/services/cart-service';
 import { Component } from '@angular/core';
 import { MedicineService } from '../../../core/services/medicine-service';
 import { debounceTime, Subject } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-medicine-search',
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,RouterModule],
   templateUrl: './medicine-search.html',
   styleUrl: './medicine-search.css',
 })
@@ -16,13 +18,26 @@ export class MedicineSearch {
 
   searchSubject = new Subject<string>();
 
-  constructor(private service: MedicineService) {
+  constructor(private service: MedicineService, private cartService: CartService) {
     this.searchSubject.pipe(
       debounceTime(500) // ⏱ wait 0.5 sec
     ).subscribe(value => {
       this.loadResults(value);
     });
   }
+
+  addToCart(item: any) {
+
+  const data = {
+    medicineId: item.id,
+    userName: 'devira',
+    quantity: 1
+  };
+
+  this.cartService.add(data).subscribe(() => {
+    alert('Added to Cart');
+  });
+}
 
   onSearchChange() {
     this.searchSubject.next(this.searchText);

@@ -1,0 +1,32 @@
+<h2>My Cart</h2>
+
+<div *ngFor="let item of cartItems()" class="card">
+
+  <p>{{item.medicineName}}</p>
+  <p>₹{{item.price}}</p>
+  <p>Qty: {{item.quantity}}</p>
+
+  <button (click)="remove(item.id)">
+    Remove
+  </button>
+
+</div>
+
+<hr>
+
+<div *ngIf="validation()">
+
+  <p *ngIf="validation().requiresRx && !validation().verified"
+     style="color:red;">
+     Prescription required for checkout
+  </p>
+
+  <button
+    [disabled]="!validation().canCheckout"
+    (click)="checkout()">
+
+    Checkout
+
+  </button>
+
+</div>

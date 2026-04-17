@@ -1,0 +1,14 @@
+<h2>Upload Prescription</h2>
+
+<input type="text"
+       placeholder="Enter User Name"
+       [(ngModel)]="userName">
+
+<br><br>
+
+<input type="file"
+       (change)="onFileChange($event)">
+
+<br><br>
+
+<button (click)="upload()">Upload</button>

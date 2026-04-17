@@ -1,0 +1,65 @@
+
+.approval-title {
+  text-align: center;
+  color: #2c3e50;
+  margin: 25px 0;
+}
+
+.list-container {
+  width: 80%;
+  margin: auto;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.card p {
+  margin: 8px 0;
+  color: #333;
+  font-size: 15px;
+}
+
+.card a {
+  text-decoration: none;
+  color: #3498db;
+  font-weight: 600;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+.card button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 7px;
+  margin-right: 10px;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Approve Button */
+.card button:first-of-type {
+  background: #27ae60;
+  color: white;
+}
+
+.card button:first-of-type:hover {
+  background: #1f8a4d;
+}
+
+/* Reject Button */
+.card button:last-of-type {
+  background: #e74c3c;
+  color: white;
+}
+
+.card button:last-of-type:hover {
+  background: #c0392b;
+}
