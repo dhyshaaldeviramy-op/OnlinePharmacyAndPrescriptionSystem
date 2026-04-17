@@ -1,0 +1,19 @@
+<h2>Inventory Alerts</h2>
+
+<div *ngIf="data()">
+
+<h3>Low Stock</h3>
+
+<div *ngFor="let item of data().lowStock" class="card red">
+  <p>{{item.name}}</p>
+  <p>Stock: {{item.stock}}</p>
+</div>
+
+<h3>Expiry Soon</h3>
+
+<div *ngFor="let item of data().expirySoon" class="card orange">
+  <p>{{item.name}}</p>
+  <p>{{item.expiryDate | date}}</p>
+</div>
+
+</div>

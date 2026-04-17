@@ -1,26 +1,51 @@
-<h2>Medicine Catalog</h2>
+<h2>Medicine Inventory Management</h2>
 
-<div>
-  <input placeholder="Name" [(ngModel)]="form.name">
-  <input placeholder="Manufacturer" [(ngModel)]="form.manufacturer">
-  <input placeholder="Category" [(ngModel)]="form.category">
-  <input type="number" placeholder="Price" [(ngModel)]="form.price">
-  <input type="number" placeholder="Stock" [(ngModel)]="form.stock">
-  <input type="date" [(ngModel)]="form.expiryDate">
+<div class="form-box">
 
-  <label>
-    <input type="checkbox" [(ngModel)]="form.isPrescriptionRequired">
-    Rx Required
-  </label>
+<input [(ngModel)]="model.name" placeholder="Name">
+<input [(ngModel)]="model.manufacturer" placeholder="Manufacturer">
+<input [(ngModel)]="model.category" placeholder="Category">
 
-  <button (click)="save()">Add Medicine</button>
+<input type="number" [(ngModel)]="model.price" placeholder="Price">
+
+<input type="number" [(ngModel)]="model.stock" placeholder="Stock">
+
+<input type="date" [(ngModel)]="model.expiryDate">
+
+<label>
+<input type="checkbox" [(ngModel)]="model.isPrescriptionRequired">
+ Prescription Required
+</label>
+
+<br><br>
+
+<button *ngIf="selectedId==0" (click)="addMedicine()">
+ Add Medicine
+</button>
+
+<button *ngIf="selectedId!=0" (click)="updateMedicine()">
+ Update Medicine
+</button>
+
+<button *ngIf="selectedId!=0" (click)="resetForm()">
+ Cancel
+</button>
+
 </div>
 
 <hr>
 
-<ul>
-  <li *ngFor="let m of medicines">
-    {{m.name}} - ₹{{m.price}}
-    <button (click)="delete(m.id)">Delete</button>
-  </li>
-</ul>
+<div *ngFor="let item of medicines()" class="card">
+
+<h3>{{item.name}}</h3>
+
+<p>Manufacturer: {{item.manufacturer}}</p>
+<p>Category: {{item.category}}</p>
+<p>Price: ₹{{item.price}}</p>
+<p>Stock: {{item.stock}}</p>
+<p>Expiry: {{item.expiryDate | date}}</p>
+
+<button (click)="edit(item)">Update</button>
+<button (click)="delete(item.id)">Delete</button>
+
+</div>

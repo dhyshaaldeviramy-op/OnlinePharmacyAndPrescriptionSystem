@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { MedicineService } from '../../../../core/services/medicine-service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -11,41 +11,71 @@ import { CommonModule } from '@angular/common';
 })
 export class MedicineCatalog {
 
-  medicines: any[] = [];
+  medicines = signal<any[]>([]);
 
-  form: any = {
-    name: '',
-    manufacturer: '',
-    category: '',
-    price: 0,
-    stock: 0,
-    expiryDate: '',
-    isPrescriptionRequired: false
+  selectedId = 0;
+
+  model:any = {
+    name:'',
+    manufacturer:'',
+    category:'',
+    price:0,
+    stock:0,
+    expiryDate:'',
+    isPrescriptionRequired:false
   };
 
   constructor(private service: MedicineService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.load();
   }
 
   load() {
     this.service.getAll().subscribe(res => {
-      this.medicines = res;
+      this.medicines.set(res);
     });
   }
 
-  save() {
-    this.service.add(this.form).subscribe(() => {
-      alert('Added Successfully');
+  addMedicine() {
+    this.service.add(this.model).subscribe(() => {
+      alert('Medicine Added');
+      this.resetForm();
       this.load();
     });
   }
 
-  delete(id: number) {
+  edit(item:any) {
+    this.model = { ...item };
+    this.selectedId = item.id;
+  }
+
+  updateMedicine() {
+    this.service.update(this.selectedId, this.model)
+      .subscribe(() => {
+        alert('Updated Successfully');
+        this.resetForm();
+        this.load();
+      });
+  }
+
+  delete(id:number) {
     this.service.delete(id).subscribe(() => {
       this.load();
     });
   }
-}
 
+  resetForm() {
+    this.selectedId = 0;
+
+    this.model = {
+      name:'',
+      manufacturer:'',
+      category:'',
+      price:0,
+      stock:0,
+      expiryDate:'',
+      isPrescriptionRequired:false
+    };
+  }
+}

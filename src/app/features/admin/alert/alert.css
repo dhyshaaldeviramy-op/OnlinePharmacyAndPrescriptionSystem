@@ -1,0 +1,14 @@
+.card{
+  padding:15px;
+  margin:10px;
+  border-radius:10px;
+  color:white;
+}
+
+.red{
+  background:#e74c3c;
+}
+
+.orange{
+  background:#f39c12;
+}
