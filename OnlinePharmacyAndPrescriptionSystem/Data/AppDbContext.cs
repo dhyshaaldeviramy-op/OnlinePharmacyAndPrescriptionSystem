@@ -10,5 +10,7 @@ namespace OnlinePharmacyAndPrescriptionSystem.Data
         }
 
         public DbSet<Medicine> Medicines { get; set; }
+        public DbSet<Prescription> Prescriptions { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
     }
 }
