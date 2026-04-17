@@ -25,6 +25,8 @@ builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IOrderWorkflowService, OrderWorkflowService>();
 builder.Services.AddScoped<IOrderHistoryService, OrderHistoryService>();
 builder.Services.AddScoped<IDashboardService, DashboardService>();
+builder.Services.AddScoped<IFeedbackService, FeedbackService>();
+builder.Services.AddScoped<IAlertService, AlertService>();
 builder.Services.AddControllers();
 builder.Services.AddScoped<IMedicineService, MedicineService>();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
