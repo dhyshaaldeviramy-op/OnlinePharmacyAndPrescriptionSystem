@@ -1,0 +1,30 @@
+<h2>Admin Dashboard</h2>
+
+<div class="grid" *ngIf="stats()">
+
+<div class="box">
+<p>Total Orders</p>
+<h3>{{stats().totalOrders}}</h3>
+</div>
+
+<div class="box">
+<p>Revenue</p>
+<h3>₹{{stats().revenue}}</h3>
+</div>
+
+<div class="box">
+<p>Delivered</p>
+<h3>{{stats().delivered}}</h3>
+</div>
+
+<div class="box">
+<p>Pending</p>
+<h3>{{stats().pending}}</h3>
+</div>
+
+<div class="box">
+<p>Medicines</p>
+<h3>{{stats().medicines}}</h3>
+</div>
+
+</div>

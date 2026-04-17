@@ -6,6 +6,8 @@ import { PrescriptionApproval } from './features/admin/prescription-approval/pre
 import { Cart } from './features/customer/cart/cart';
 import { Checkout } from './features/customer/checkout/checkout';
 import { OrderManagement } from './features/admin/order-management/order-management';
+import { OrderHistory } from './features/customer/order-history/order-history';
+import { Dashboard } from './features/admin/dashboard/dashboard';
 
 export const routes: Routes = [
    { path: '', redirectTo: 'admin/medicines', pathMatch: 'full' },
@@ -29,5 +31,12 @@ export const routes: Routes = [
 {
   path: 'orders',
   component: OrderManagement
+},{
+  path:'history',
+  component: OrderHistory
+},
+{
+  path:'dashboard',
+  component: Dashboard
 }
 ];

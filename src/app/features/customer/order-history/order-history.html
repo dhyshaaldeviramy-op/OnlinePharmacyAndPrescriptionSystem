@@ -1,0 +1,11 @@
+<h2>My Order History</h2>
+
+<div *ngFor="let item of orders()" class="card">
+
+<p>Order ID: {{item.id}}</p>
+<p>Total: ₹{{item.grandTotal}}</p>
+<p>Payment: {{item.paymentMethod}}</p>
+<p>Status: {{item.status}}</p>
+<p>Date: {{item.orderedAt | date:'short'}}</p>
+
+</div>

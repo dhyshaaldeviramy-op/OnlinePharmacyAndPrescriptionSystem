@@ -1,0 +1,13 @@
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+
+.box{
+  background:#3498db;
+  color:white;
+  padding:20px;
+  border-radius:10px;
+  text-align:center;
+}
