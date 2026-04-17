@@ -1,0 +1,44 @@
+<h2>Order Management</h2>
+
+<button (click)="load()">All</button>
+<button (click)="filter('New')">New</button>
+<button (click)="filter('Packing')">Packing</button>
+<button (click)="filter('Dispatched')">Dispatched</button>
+<button (click)="filter('Delivered')">Delivered</button>
+
+<hr>
+
+<div *ngFor="let item of orders()" class="card">
+
+<p>Order ID: {{item.id}}</p>
+<p>User: {{item.userName}}</p>
+<p>Total: ₹{{item.grandTotal}}</p>
+<p>Status: {{item.status}}</p>
+
+<!-- If New -->
+<button
+*ngIf="item.status == 'New'"
+(click)="update(item.id,'Packing')">
+Packing
+</button>
+
+<!-- If Packing -->
+<button
+*ngIf="item.status == 'Packing'"
+(click)="update(item.id,'Dispatched')">
+Dispatch
+</button>
+
+<!-- If Dispatched -->
+<button
+*ngIf="item.status == 'Dispatched'"
+(click)="update(item.id,'Delivered')">
+Deliver
+</button>
+
+<!-- If Delivered -->
+<span *ngIf="item.status == 'Delivered'">
+Completed
+</span>
+
+</div>

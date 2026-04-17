@@ -8,16 +8,23 @@
 />
 
 <hr>
+<div *ngFor="let item of medicines" class="card">
 
-<div *ngFor="let m of medicines" class="card">
-  <h3>{{m.name}}</h3>
-  <p>₹{{m.price}} | {{m.category}}</p>
+  <p>{{item.name}}</p>
+  <p>₹{{item.price}}</p>
+  <p>Stock: {{item.stock}}</p>
 
-  <span *ngIf="m.isPrescriptionRequired" class="rx">
-    Rx Required
-  </span>
+  <label>Qty:</label>
 
-  <button (click)="addToCart(m)">
-  Add To Cart
-</button>
+  <input
+    type="number"
+    min="1"
+    [max]="item.stock"
+    [(ngModel)]="item.quantity"
+    style="width:70px; margin:8px;">
+
+  <button (click)="addToCart(item)">
+    Add To Cart
+  </button>
+
 </div>

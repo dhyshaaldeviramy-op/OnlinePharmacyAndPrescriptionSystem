@@ -4,6 +4,8 @@ import { MedicineSearch } from './features/customer/medicine-search/medicine-sea
 import { PrescriptionUpload } from './features/customer/prescription-upload/prescription-upload';
 import { PrescriptionApproval } from './features/admin/prescription-approval/prescription-approval';
 import { Cart } from './features/customer/cart/cart';
+import { Checkout } from './features/customer/checkout/checkout';
+import { OrderManagement } from './features/admin/order-management/order-management';
 
 export const routes: Routes = [
    { path: '', redirectTo: 'admin/medicines', pathMatch: 'full' },
@@ -19,5 +21,13 @@ export const routes: Routes = [
 {
   path: 'cart',
   component: Cart
+},
+{
+  path: 'checkout',
+  component: Checkout
+},
+{
+  path: 'orders',
+  component: OrderManagement
 }
 ];

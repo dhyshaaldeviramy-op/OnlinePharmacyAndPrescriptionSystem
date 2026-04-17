@@ -1,0 +1,28 @@
+<h2>Checkout</h2>
+
+<label>Select Payment:</label>
+
+<select
+(change)="paymentMethod.set($any($event.target).value)">
+
+<option>UPI</option>
+<option>Cash On Delivery</option>
+<option>Card</option>
+
+</select>
+
+<br><br>
+
+<button (click)="placeOrder()">
+Place Order
+</button>
+
+<hr>
+
+<div *ngIf="result()">
+
+<p>Order ID: {{result().orderId}}</p>
+<p>Total: ₹{{result().total}}</p>
+<p>{{result().message}}</p>
+
+</div>

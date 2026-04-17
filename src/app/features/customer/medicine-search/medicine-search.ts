@@ -25,20 +25,33 @@ export class MedicineSearch {
       this.loadResults(value);
     });
   }
+ngOnInit() {
+  this.service.getAll().subscribe(res => {
 
-  addToCart(item: any) {
+    const updated = res.map((x:any) => ({
+      ...x,
+      quantity: 1
+    }));
+
+    this.medicines = updated;
+
+  });
+}
+ addToCart(item: any) {
+
+  const qty = item.quantity || 1;
 
   const data = {
     medicineId: item.id,
     userName: 'devira',
-    quantity: 1
+    quantity: qty
   };
 
-  this.cartService.add(data).subscribe(() => {
-    alert('Added to Cart');
+  this.cartService.add(data).subscribe({
+    next: () => alert('Added to Cart'),
+    error: err => console.log(err)
   });
 }
-
   onSearchChange() {
     this.searchSubject.next(this.searchText);
   }
